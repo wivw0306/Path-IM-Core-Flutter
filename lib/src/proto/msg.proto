@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package pb;
+
+message SendMsgReq {
+  MsgData msgData = 1;
+}
+
+message MsgData {
+  string clientMsgID = 1;
+  string serverMsgID = 2;
+  uint32 conversationType = 3;
+  string sendID = 4;
+  string receiveID = 5;
+  uint32 contentType = 6;
+  bytes content = 7;
+  repeated string atUserIDList = 8;
+  OfflinePushInfo offlinePushInfo = 9;
+  uint32 clientTime = 10;
+  uint32 serverTime = 11;
+  uint32 seq = 12;
+  message Options{
+    bool persistent = 1;
+    bool history = 2;
+    bool unreadCount = 3;
+    bool updateConversation = 4;
+  }
+  Options options = 13;
+}
+
+message OfflinePushInfo{
+  string title = 1;
+  string desc = 2;
+  string ex = 3;
+  string iOSPushSound = 4;
+  bool iOSBadgeCount = 5;
+}
+
+message SendMsgResp {
+  string clientMsgID = 1;
+  string serverMsgID = 2;
+  uint32 conversationType = 3;
+  string receiveID = 4;
+  uint32 contentType = 5;
+  uint32 serverTime = 6;
+}
