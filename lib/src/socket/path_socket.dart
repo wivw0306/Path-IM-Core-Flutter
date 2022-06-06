@@ -21,8 +21,8 @@ class PathSocket {
   final UserCallback userCallback;
   final GroupCallback? groupCallback;
   final ConnectListener? connectListener;
-  final SendMsgListener? sendMsgListener;
   final ReceiveMsgListener? receiveMsgListener;
+  final SendMsgListener? sendMsgListener;
 
   PathSocket({
     required this.wsUrl,
@@ -31,8 +31,8 @@ class PathSocket {
     required this.userCallback,
     this.groupCallback,
     this.connectListener,
-    this.sendMsgListener,
     this.receiveMsgListener,
+    this.sendMsgListener,
   });
 
   late String token;

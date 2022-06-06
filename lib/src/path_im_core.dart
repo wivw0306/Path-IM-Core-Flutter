@@ -28,8 +28,8 @@ class PathIMCore {
     required UserCallback userCallback,
     GroupCallback? groupCallback,
     ConnectListener? connectListener,
-    SendMsgListener? sendMsgListener,
     ReceiveMsgListener? receiveMsgListener,
+    SendMsgListener? sendMsgListener,
   }) async {
     _pathSocket = PathSocket(
       wsUrl: wsUrl,
@@ -38,8 +38,8 @@ class PathIMCore {
       userCallback: userCallback,
       groupCallback: groupCallback,
       connectListener: connectListener,
-      sendMsgListener: sendMsgListener,
       receiveMsgListener: receiveMsgListener,
+      sendMsgListener: sendMsgListener,
     );
   }
 
