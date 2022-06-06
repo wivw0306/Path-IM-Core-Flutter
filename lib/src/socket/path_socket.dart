@@ -97,9 +97,9 @@ class PathSocket {
       );
     }
 
-    void getGroupSeq() {
+    void getGroupSeq() async {
       if (groupCallback == null) return;
-      List<String> groupIDList = groupCallback!.groupIDList();
+      List<String> groupIDList = await groupCallback!.groupIDList();
       if (groupIDList.isEmpty) return;
       GetMinAndMaxGroupSeqReq groupSeqReq = GetMinAndMaxGroupSeqReq(
         groupIDList: groupIDList,
@@ -179,7 +179,7 @@ class PathSocket {
   }
 
   /// 获取最新Seq
-  void _getMinAndMaxSeq(BodyResp bodyResp) {
+  void _getMinAndMaxSeq(BodyResp bodyResp) async {
     if (bodyResp.errCode != 0) return;
     GetMinAndMaxSeqResp resp = GetMinAndMaxSeqResp.fromBuffer(
       bodyResp.data,
@@ -187,7 +187,7 @@ class PathSocket {
     int minSeq = resp.minSeq;
     int maxSeq = resp.maxSeq;
     List<int> seqList = [];
-    int value = userCallback.maxSeq();
+    int value = await userCallback.maxSeq();
     if (value == 0) {
       seqList = List.generate(maxSeq - minSeq, (index) {
         return minSeq + index + 1;
@@ -222,7 +222,7 @@ class PathSocket {
   }
 
   /// 获取最新群聊Seq
-  void _getMinAndMaxGroupSeq(BodyResp bodyResp) {
+  void _getMinAndMaxGroupSeq(BodyResp bodyResp) async {
     if (bodyResp.errCode != 0) return;
     GetMinAndMaxGroupSeqResp resp = GetMinAndMaxGroupSeqResp.fromBuffer(
       bodyResp.data,
@@ -233,7 +233,7 @@ class PathSocket {
       int minSeq = item.minSeq;
       int maxSeq = item.maxSeq;
       List<int> seqList = [];
-      int? value = groupCallback?.groupMaxSeq(groupID);
+      int? value = await groupCallback?.groupMaxSeq(groupID);
       if (value == null || value == 0) {
         seqList = List.generate(maxSeq - minSeq, (index) {
           return minSeq + index + 1;

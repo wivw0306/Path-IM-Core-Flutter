@@ -1,12 +1,12 @@
 /// 获取当前用户必需参数
 class UserCallback {
-  final int Function() onMaxSeq; // 返回当前用户最大Seq
+  final Future<int> Function() onMaxSeq; // 返回当前用户最大Seq
 
   UserCallback({
     required this.onMaxSeq,
   });
 
-  int maxSeq() {
+  Future<int> maxSeq() {
     return onMaxSeq();
   }
 }
