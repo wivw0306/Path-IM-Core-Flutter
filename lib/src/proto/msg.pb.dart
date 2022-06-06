@@ -58,95 +58,6 @@ class SendMsgReq extends $pb.GeneratedMessage {
   MsgData ensureMsgData() => $_ensure(0);
 }
 
-class MsgData_Options extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MsgData.Options', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pb'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'persistent')
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'history')
-    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unreadCount', protoName: 'unreadCount')
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updateConversation', protoName: 'updateConversation')
-    ..hasRequiredFields = false
-  ;
-
-  MsgData_Options._() : super();
-  factory MsgData_Options({
-    $core.bool? persistent,
-    $core.bool? history,
-    $core.bool? unreadCount,
-    $core.bool? updateConversation,
-  }) {
-    final _result = create();
-    if (persistent != null) {
-      _result.persistent = persistent;
-    }
-    if (history != null) {
-      _result.history = history;
-    }
-    if (unreadCount != null) {
-      _result.unreadCount = unreadCount;
-    }
-    if (updateConversation != null) {
-      _result.updateConversation = updateConversation;
-    }
-    return _result;
-  }
-  factory MsgData_Options.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory MsgData_Options.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  MsgData_Options clone() => MsgData_Options()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  MsgData_Options copyWith(void Function(MsgData_Options) updates) => super.copyWith((message) => updates(message as MsgData_Options)) as MsgData_Options; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static MsgData_Options create() => MsgData_Options._();
-  MsgData_Options createEmptyInstance() => create();
-  static $pb.PbList<MsgData_Options> createRepeated() => $pb.PbList<MsgData_Options>();
-  @$core.pragma('dart2js:noInline')
-  static MsgData_Options getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MsgData_Options>(create);
-  static MsgData_Options? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.bool get persistent => $_getBF(0);
-  @$pb.TagNumber(1)
-  set persistent($core.bool v) { $_setBool(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasPersistent() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearPersistent() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.bool get history => $_getBF(1);
-  @$pb.TagNumber(2)
-  set history($core.bool v) { $_setBool(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasHistory() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearHistory() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.bool get unreadCount => $_getBF(2);
-  @$pb.TagNumber(3)
-  set unreadCount($core.bool v) { $_setBool(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasUnreadCount() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearUnreadCount() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.bool get updateConversation => $_getBF(3);
-  @$pb.TagNumber(4)
-  set updateConversation($core.bool v) { $_setBool(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasUpdateConversation() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearUpdateConversation() => clearField(4);
-}
-
 class MsgData extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MsgData', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pb'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clientMsgID', protoName: 'clientMsgID')
@@ -157,11 +68,11 @@ class MsgData extends $pb.GeneratedMessage {
     ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'contentType', $pb.PbFieldType.OU3, protoName: 'contentType')
     ..a<$core.List<$core.int>>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'content', $pb.PbFieldType.OY)
     ..pPS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'atUserIDList', protoName: 'atUserIDList')
-    ..aOM<OfflinePushInfo>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'offlinePushInfo', protoName: 'offlinePushInfo', subBuilder: OfflinePushInfo.create)
-    ..a<$core.int>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clientTime', $pb.PbFieldType.OU3, protoName: 'clientTime')
-    ..a<$core.int>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serverTime', $pb.PbFieldType.OU3, protoName: 'serverTime')
-    ..a<$core.int>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'seq', $pb.PbFieldType.OU3)
-    ..aOM<MsgData_Options>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'options', subBuilder: MsgData_Options.create)
+    ..a<$core.int>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clientTime', $pb.PbFieldType.OU3, protoName: 'clientTime')
+    ..a<$core.int>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serverTime', $pb.PbFieldType.OU3, protoName: 'serverTime')
+    ..a<$core.int>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'seq', $pb.PbFieldType.OU3)
+    ..aOM<OfflinePush>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'offlinePush', protoName: 'offlinePush', subBuilder: OfflinePush.create)
+    ..aOM<MsgOptions>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'msgOptions', protoName: 'msgOptions', subBuilder: MsgOptions.create)
     ..hasRequiredFields = false
   ;
 
@@ -175,11 +86,11 @@ class MsgData extends $pb.GeneratedMessage {
     $core.int? contentType,
     $core.List<$core.int>? content,
     $core.Iterable<$core.String>? atUserIDList,
-    OfflinePushInfo? offlinePushInfo,
     $core.int? clientTime,
     $core.int? serverTime,
     $core.int? seq,
-    MsgData_Options? options,
+    OfflinePush? offlinePush,
+    MsgOptions? msgOptions,
   }) {
     final _result = create();
     if (clientMsgID != null) {
@@ -206,9 +117,6 @@ class MsgData extends $pb.GeneratedMessage {
     if (atUserIDList != null) {
       _result.atUserIDList.addAll(atUserIDList);
     }
-    if (offlinePushInfo != null) {
-      _result.offlinePushInfo = offlinePushInfo;
-    }
     if (clientTime != null) {
       _result.clientTime = clientTime;
     }
@@ -218,8 +126,11 @@ class MsgData extends $pb.GeneratedMessage {
     if (seq != null) {
       _result.seq = seq;
     }
-    if (options != null) {
-      _result.options = options;
+    if (offlinePush != null) {
+      _result.offlinePush = offlinePush;
+    }
+    if (msgOptions != null) {
+      _result.msgOptions = msgOptions;
     }
     return _result;
   }
@@ -311,57 +222,57 @@ class MsgData extends $pb.GeneratedMessage {
   $core.List<$core.String> get atUserIDList => $_getList(7);
 
   @$pb.TagNumber(9)
-  OfflinePushInfo get offlinePushInfo => $_getN(8);
+  $core.int get clientTime => $_getIZ(8);
   @$pb.TagNumber(9)
-  set offlinePushInfo(OfflinePushInfo v) { setField(9, v); }
+  set clientTime($core.int v) { $_setUnsignedInt32(8, v); }
   @$pb.TagNumber(9)
-  $core.bool hasOfflinePushInfo() => $_has(8);
+  $core.bool hasClientTime() => $_has(8);
   @$pb.TagNumber(9)
-  void clearOfflinePushInfo() => clearField(9);
-  @$pb.TagNumber(9)
-  OfflinePushInfo ensureOfflinePushInfo() => $_ensure(8);
+  void clearClientTime() => clearField(9);
 
   @$pb.TagNumber(10)
-  $core.int get clientTime => $_getIZ(9);
+  $core.int get serverTime => $_getIZ(9);
   @$pb.TagNumber(10)
-  set clientTime($core.int v) { $_setUnsignedInt32(9, v); }
+  set serverTime($core.int v) { $_setUnsignedInt32(9, v); }
   @$pb.TagNumber(10)
-  $core.bool hasClientTime() => $_has(9);
+  $core.bool hasServerTime() => $_has(9);
   @$pb.TagNumber(10)
-  void clearClientTime() => clearField(10);
+  void clearServerTime() => clearField(10);
 
   @$pb.TagNumber(11)
-  $core.int get serverTime => $_getIZ(10);
+  $core.int get seq => $_getIZ(10);
   @$pb.TagNumber(11)
-  set serverTime($core.int v) { $_setUnsignedInt32(10, v); }
+  set seq($core.int v) { $_setUnsignedInt32(10, v); }
   @$pb.TagNumber(11)
-  $core.bool hasServerTime() => $_has(10);
+  $core.bool hasSeq() => $_has(10);
   @$pb.TagNumber(11)
-  void clearServerTime() => clearField(11);
+  void clearSeq() => clearField(11);
 
   @$pb.TagNumber(12)
-  $core.int get seq => $_getIZ(11);
+  OfflinePush get offlinePush => $_getN(11);
   @$pb.TagNumber(12)
-  set seq($core.int v) { $_setUnsignedInt32(11, v); }
+  set offlinePush(OfflinePush v) { setField(12, v); }
   @$pb.TagNumber(12)
-  $core.bool hasSeq() => $_has(11);
+  $core.bool hasOfflinePush() => $_has(11);
   @$pb.TagNumber(12)
-  void clearSeq() => clearField(12);
+  void clearOfflinePush() => clearField(12);
+  @$pb.TagNumber(12)
+  OfflinePush ensureOfflinePush() => $_ensure(11);
 
   @$pb.TagNumber(13)
-  MsgData_Options get options => $_getN(12);
+  MsgOptions get msgOptions => $_getN(12);
   @$pb.TagNumber(13)
-  set options(MsgData_Options v) { setField(13, v); }
+  set msgOptions(MsgOptions v) { setField(13, v); }
   @$pb.TagNumber(13)
-  $core.bool hasOptions() => $_has(12);
+  $core.bool hasMsgOptions() => $_has(12);
   @$pb.TagNumber(13)
-  void clearOptions() => clearField(13);
+  void clearMsgOptions() => clearField(13);
   @$pb.TagNumber(13)
-  MsgData_Options ensureOptions() => $_ensure(12);
+  MsgOptions ensureMsgOptions() => $_ensure(12);
 }
 
-class OfflinePushInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'OfflinePushInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pb'), createEmptyInstance: create)
+class OfflinePush extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'OfflinePush', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pb'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'title')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'desc')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ex')
@@ -370,8 +281,8 @@ class OfflinePushInfo extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  OfflinePushInfo._() : super();
-  factory OfflinePushInfo({
+  OfflinePush._() : super();
+  factory OfflinePush({
     $core.String? title,
     $core.String? desc,
     $core.String? ex,
@@ -396,26 +307,26 @@ class OfflinePushInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory OfflinePushInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory OfflinePushInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory OfflinePush.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory OfflinePush.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  OfflinePushInfo clone() => OfflinePushInfo()..mergeFromMessage(this);
+  OfflinePush clone() => OfflinePush()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  OfflinePushInfo copyWith(void Function(OfflinePushInfo) updates) => super.copyWith((message) => updates(message as OfflinePushInfo)) as OfflinePushInfo; // ignore: deprecated_member_use
+  OfflinePush copyWith(void Function(OfflinePush) updates) => super.copyWith((message) => updates(message as OfflinePush)) as OfflinePush; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static OfflinePushInfo create() => OfflinePushInfo._();
-  OfflinePushInfo createEmptyInstance() => create();
-  static $pb.PbList<OfflinePushInfo> createRepeated() => $pb.PbList<OfflinePushInfo>();
+  static OfflinePush create() => OfflinePush._();
+  OfflinePush createEmptyInstance() => create();
+  static $pb.PbList<OfflinePush> createRepeated() => $pb.PbList<OfflinePush>();
   @$core.pragma('dart2js:noInline')
-  static OfflinePushInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<OfflinePushInfo>(create);
-  static OfflinePushInfo? _defaultInstance;
+  static OfflinePush getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<OfflinePush>(create);
+  static OfflinePush? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get title => $_getSZ(0);
@@ -461,6 +372,95 @@ class OfflinePushInfo extends $pb.GeneratedMessage {
   $core.bool hasIOSBadgeCount() => $_has(4);
   @$pb.TagNumber(5)
   void clearIOSBadgeCount() => clearField(5);
+}
+
+class MsgOptions extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MsgOptions', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'pb'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'persistent')
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'history')
+    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unreadCount', protoName: 'unreadCount')
+    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updateConversation', protoName: 'updateConversation')
+    ..hasRequiredFields = false
+  ;
+
+  MsgOptions._() : super();
+  factory MsgOptions({
+    $core.bool? persistent,
+    $core.bool? history,
+    $core.bool? unreadCount,
+    $core.bool? updateConversation,
+  }) {
+    final _result = create();
+    if (persistent != null) {
+      _result.persistent = persistent;
+    }
+    if (history != null) {
+      _result.history = history;
+    }
+    if (unreadCount != null) {
+      _result.unreadCount = unreadCount;
+    }
+    if (updateConversation != null) {
+      _result.updateConversation = updateConversation;
+    }
+    return _result;
+  }
+  factory MsgOptions.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory MsgOptions.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  MsgOptions clone() => MsgOptions()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  MsgOptions copyWith(void Function(MsgOptions) updates) => super.copyWith((message) => updates(message as MsgOptions)) as MsgOptions; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static MsgOptions create() => MsgOptions._();
+  MsgOptions createEmptyInstance() => create();
+  static $pb.PbList<MsgOptions> createRepeated() => $pb.PbList<MsgOptions>();
+  @$core.pragma('dart2js:noInline')
+  static MsgOptions getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MsgOptions>(create);
+  static MsgOptions? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get persistent => $_getBF(0);
+  @$pb.TagNumber(1)
+  set persistent($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasPersistent() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPersistent() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get history => $_getBF(1);
+  @$pb.TagNumber(2)
+  set history($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasHistory() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearHistory() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get unreadCount => $_getBF(2);
+  @$pb.TagNumber(3)
+  set unreadCount($core.bool v) { $_setBool(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasUnreadCount() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearUnreadCount() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get updateConversation => $_getBF(3);
+  @$pb.TagNumber(4)
+  set updateConversation($core.bool v) { $_setBool(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasUpdateConversation() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearUpdateConversation() => clearField(4);
 }
 
 class SendMsgResp extends $pb.GeneratedMessage {

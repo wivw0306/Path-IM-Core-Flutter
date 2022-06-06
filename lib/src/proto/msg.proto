@@ -15,25 +15,26 @@ message MsgData {
   uint32 contentType = 6;
   bytes content = 7;
   repeated string atUserIDList = 8;
-  OfflinePushInfo offlinePushInfo = 9;
-  uint32 clientTime = 10;
-  uint32 serverTime = 11;
-  uint32 seq = 12;
-  message Options{
-    bool persistent = 1;
-    bool history = 2;
-    bool unreadCount = 3;
-    bool updateConversation = 4;
-  }
-  Options options = 13;
+  uint32 clientTime = 9;
+  uint32 serverTime = 10;
+  uint32 seq = 11;
+  OfflinePush offlinePush = 12;
+  MsgOptions msgOptions = 13;
 }
 
-message OfflinePushInfo{
+message OfflinePush{
   string title = 1;
   string desc = 2;
   string ex = 3;
   string iOSPushSound = 4;
   bool iOSBadgeCount = 5;
+}
+
+message MsgOptions{
+  bool persistent = 1;
+  bool history = 2;
+  bool unreadCount = 3;
+  bool updateConversation = 4;
 }
 
 message SendMsgResp {
