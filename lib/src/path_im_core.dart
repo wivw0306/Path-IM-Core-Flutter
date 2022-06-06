@@ -1,5 +1,6 @@
 import 'package:path_im_core_flutter/src/callback/group_callback.dart';
 import 'package:path_im_core_flutter/src/callback/user_callback.dart';
+import 'package:path_im_core_flutter/src/constant/conversation_type.dart';
 import 'package:path_im_core_flutter/src/listener/connect_listener.dart';
 import 'package:path_im_core_flutter/src/listener/receive_msg_listener.dart';
 import 'package:path_im_core_flutter/src/listener/send_msg_listener.dart';
@@ -48,7 +49,10 @@ class PathIMCore {
     required String token,
     required String userID,
   }) async {
-    await _pathSocket?.connect(token: token, userID: userID);
+    await _pathSocket?.connect(
+      token: token,
+      userID: userID,
+    );
   }
 
   /// 登出
@@ -61,10 +65,63 @@ class PathIMCore {
     return _pathSocket?.isConnect() ?? false;
   }
 
-  /// 发送消息
-  void sendMsg(MsgData msgData) {
+  /// 发送单聊消息
+  void sendSingleMsg({
+    required String clientMsgID,
+    required String sendID,
+    required String receiveID,
+    required int contentType,
+    required List<int> content,
+    List<String>? atUserIDList,
+    required int clientTime,
+    OfflinePush? offlinePush,
+    MsgOptions? msgOptions,
+  }) {
     SendMsgReq sendMsgReq = SendMsgReq(
-      msgData: msgData,
+      msgData: MsgData(
+        clientMsgID: clientMsgID,
+        conversationType: ConversationType.single,
+        sendID: sendID,
+        receiveID: receiveID,
+        contentType: contentType,
+        content: content,
+        atUserIDList: atUserIDList,
+        clientTime: clientTime,
+        offlinePush: offlinePush,
+        msgOptions: msgOptions,
+      ),
+    );
+    _pathSocket?.sendData(
+      PathProtocol.sendMsgAndReceipt,
+      sendMsgReq.writeToBuffer(),
+    );
+  }
+
+  /// 发送群聊消息
+  void sendGroupMsg({
+    required String clientMsgID,
+    required String sendID,
+    required String receiveID,
+    required int contentType,
+    required List<int> content,
+    List<String>? atUserIDList,
+    required int clientTime,
+    OfflinePush? offlinePush,
+    MsgOptions? msgOptions,
+  }) {
+    SendMsgReq sendMsgReq = SendMsgReq(
+      msgData: MsgData(
+        clientMsgID: clientMsgID,
+        conversationType: ConversationType.group,
+        sendID: sendID,
+        receiveID: receiveID,
+        contentType: contentType,
+        content: content,
+        atUserIDList: atUserIDList,
+        clientTime: clientTime,
+        offlinePush: offlinePush,
+        msgOptions: msgOptions,
+      ),
     );
     _pathSocket?.sendData(
       PathProtocol.sendMsgAndReceipt,

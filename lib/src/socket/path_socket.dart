@@ -76,6 +76,7 @@ class PathSocket {
   /// 断开连接
   Future disconnect() async {
     _closePulse();
+    _cancelRetry();
     _isRetry = false;
     await _webSocket?.close();
     _webSocket = null;
@@ -86,7 +87,7 @@ class PathSocket {
     return _webSocket != null;
   }
 
-  /// 打开心跳
+  /// 打开脉搏
   void _openPulse() {
     void getSeq() {
       GetMinAndMaxSeqReq seqReq = GetMinAndMaxSeqReq();
@@ -121,7 +122,7 @@ class PathSocket {
     );
   }
 
-  /// 取消心跳
+  /// 取消脉搏
   void _closePulse() {
     if (_pulseTimer != null) {
       _pulseTimer!.cancel();
