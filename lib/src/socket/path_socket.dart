@@ -17,7 +17,6 @@ class PathSocket {
   final String wsUrl;
   final Duration pulseDuration;
   final Duration retryDuration;
-
   final UserCallback userCallback;
   final GroupCallback? groupCallback;
   final ConnectListener? connectListener;
@@ -43,6 +42,7 @@ class PathSocket {
   Timer? _retryTimer;
   bool? _isRetry;
 
+  /// 建立连接
   Future connect({
     required String token,
     required String userID,
@@ -73,6 +73,7 @@ class PathSocket {
     _openPulse();
   }
 
+  /// 断开连接
   Future disconnect() async {
     _closePulse();
     _isRetry = false;
@@ -80,10 +81,12 @@ class PathSocket {
     _webSocket = null;
   }
 
+  /// 是否连接
   bool isConnect() {
     return _webSocket != null;
   }
 
+  /// 打开心跳
   void _openPulse() {
     void getSeq() {
       GetMinAndMaxSeqReq seqReq = GetMinAndMaxSeqReq();
@@ -94,17 +97,16 @@ class PathSocket {
     }
 
     void getGroupSeq() {
-      if (groupCallback != null) {
-        List<String> groupIDList = groupCallback!.groupIDList();
-        if (groupIDList.isEmpty) return;
-        GetMinAndMaxGroupSeqReq groupSeqReq = GetMinAndMaxGroupSeqReq(
-          groupIDList: groupIDList,
-        );
-        sendData(
-          PathProtocol.getMinAndMaxGroupSeq,
-          groupSeqReq.writeToBuffer(),
-        );
-      }
+      if (groupCallback == null) return;
+      List<String> groupIDList = groupCallback!.groupIDList();
+      if (groupIDList.isEmpty) return;
+      GetMinAndMaxGroupSeqReq groupSeqReq = GetMinAndMaxGroupSeqReq(
+        groupIDList: groupIDList,
+      );
+      sendData(
+        PathProtocol.getMinAndMaxGroupSeq,
+        groupSeqReq.writeToBuffer(),
+      );
     }
 
     _closePulse();
@@ -119,6 +121,7 @@ class PathSocket {
     );
   }
 
+  /// 取消心跳
   void _closePulse() {
     if (_pulseTimer != null) {
       _pulseTimer!.cancel();
@@ -126,6 +129,7 @@ class PathSocket {
     }
   }
 
+  /// 重试连接
   void _retryConnect() {
     _cancelRetry();
     if (_isRetry == false) return;
@@ -137,6 +141,7 @@ class PathSocket {
     );
   }
 
+  /// 取消重试
   void _cancelRetry() {
     if (_retryTimer != null) {
       _retryTimer!.cancel();
@@ -144,6 +149,7 @@ class PathSocket {
     }
   }
 
+  /// 接收数据
   void _receiveData(data) {
     BodyResp bodyResp = BodyResp.fromBuffer(data);
     switch (bodyResp.reqIdentifier) {
@@ -286,7 +292,7 @@ class PathSocket {
     receiveMsgListener?.receiveGroupMsg(msg);
   }
 
-  /// 发送消息
+  /// 发送数据
   void sendData(int reqIdentifier, List<int> data) {
     BodyReq bodyReq = BodyReq(
       reqIdentifier: reqIdentifier,

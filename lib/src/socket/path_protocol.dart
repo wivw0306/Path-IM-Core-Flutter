@@ -9,7 +9,7 @@ class PathProtocol {
   static const int receivePushMsg = 2002; // 接收推送消息
   static const int receivePushGroupMsg = 2003; // 接收推送群聊消息
 
-  // 获取当前平台
+  /// 获取当前平台
   static String getPlatform() {
     if (Platform.isIOS) {
       return "IOS";

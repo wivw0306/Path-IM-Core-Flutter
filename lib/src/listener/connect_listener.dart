@@ -1,9 +1,9 @@
 /// 连接状态监听
 class ConnectListener {
-  final Function()? onConnecting;
-  final Function()? onSuccess;
-  final Function(dynamic error)? onError;
-  final Function()? onClose;
+  final Function()? onConnecting; // 连接中
+  final Function()? onSuccess; // 连接成功
+  final Function(dynamic error)? onError; // 连接错误
+  final Function()? onClose; // 连接关闭
 
   ConnectListener({
     this.onConnecting,
@@ -12,22 +12,18 @@ class ConnectListener {
     this.onClose,
   });
 
-  // 连接中
   void connecting() {
     if (onConnecting != null) onConnecting!();
   }
 
-  // 连接成功
   void success() {
     if (onSuccess != null) onSuccess!();
   }
 
-  // 发生错误
   void error(dynamic error) {
     if (onError != null) onError!(error);
   }
 
-  // 连接关闭
   void close() {
     if (onClose != null) onClose!();
   }
